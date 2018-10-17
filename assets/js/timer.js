@@ -55,7 +55,7 @@ function refreshAll() {
     { name: 'Amadon', minutes: 55, map: 'Ludari Arena', open: 15 },
     // "Bajar": { minutes: 0, map: "", open: 15 },
     // "Cold-Blooded Baphomet": { minutes: 0, map: "", open: 15 },
-    // "Devilin Warrior": { minutes: 0, map: "", open: 15 },
+    { name: 'Devilin Warrior', minutes: 55, map: 'South Royal Road', open: 15 },
     // "Dun Dun": { minutes: 0, map: "", open: 15 },
     { name: 'Furious Baphomet', minutes: 5, map: 'Mirror Castle', open: 15 },
     { name: 'Giant Turtle', minutes: 35, map: 'Beachway 111', open: 15 },
@@ -66,7 +66,7 @@ function refreshAll() {
     // "Ikar Morde": { minutes: 0, map: "", open: 15 },
     { name: 'Lernos', minutes: 45, map: 'Twilight Moon Castle', open: 15 },
     // "Lulu and Momos": { minutes: 0, map: "", open: 15 },
-    { name: 'Mark 52 Alpha Bot', minutes: 45, map: 'Neuron DNA Research Center', open: 15 },
+    { name: 'MK 52 Alpha Bot', minutes: 45, map: 'Neuron DNA Research Center', open: 15 },
     { name: 'Pekanos', minutes: 55, map: 'Fractured Canyon', open: 15 },
     { name: 'Toh and Googoo', minutes: 25, map: 'Whistler Cliffs', open: 15 },
     // "Toto and Waggus": { minutes: 0, map: "", open: 15 },
@@ -76,6 +76,15 @@ function refreshAll() {
 
   bosses.sort(sortByTime);
 
+  var active = bosses.filter(x => isCurrent(x));
+  var inactive = bosses.filter(x => !isCurrent(x));
+
+  addDetailedBosses(active);
+  addBosses(active);
+  addBosses(inactive);
+}
+
+function addBosses(bosses) {
   var k = bosses.length;
   for (i = 0; i<k; i++) {
     var boss = bosses[i];
@@ -88,16 +97,17 @@ function refreshAll() {
             + '</div>';
     $('#boss-timer').append(tmp);
   }
+}
 
-  var active = bosses.filter(x => isCurrent(x));
-  var count = active.length;
+function addDetailedBosses(bosses) {
+  var count = bosses.length;
   for (i = 0; i<count; i++) {
-    var boss = active[i];
+    var boss = bosses[i];
     var tmp = '<div class="row active-content">'
             + '<div class="col-sm-12 center"><img class="boss-icon" src="images/boss-icon.png"/></div>'
             + '<div class="col-sm-12 center"><h2>' + boss.name + '</h2></div>'
             + '<div class="col-sm-12 center">' + boss.map + '</div>'
-            + '<div class="col-sm-12 center"><sub>Started at XX:' + formattedMinutes(boss.minutes) + '<sub></div>'
+            + '<div class="col-sm-12 center"><sub>Started at XX:' + formattedMinutes(boss.minutes) + '</sub></div>'
             + '<div class="col-sm-12 center"><sub>Will leave the map within ' + formattedMinutes(boss.open) + ' minutes</sub></div>'
             + '</div>';
     $('#on-now').append(tmp);
