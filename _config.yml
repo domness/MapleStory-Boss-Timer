@@ -1,0 +1,21 @@
+title: MapleStory 2 World Boss Timer
+description: Timers for the various world bosses on MapleStory 2
+theme: jekyll-theme-midnight
+root: 'MapleStory-Boss-Timer'
+google_analytics: UA-40498224-2
+
+author:
+  name: Dominic Wroblewski
+  twitter: domness
+
+twitter:
+  username: domness
+
+exclude:
+  - README.md
+  - package.json
+  - .gitignore
+  - Gemfile
+  - test
+
+timezone: UTC

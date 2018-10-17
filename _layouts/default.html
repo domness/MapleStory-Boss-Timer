@@ -1,0 +1,16 @@
+{% include header.html %}
+
+<section>
+  <div id="title">
+    <h1>{{ page.title | default: site.github.repository_name }}</h1>
+    <p>{{ site.description | default: site.github.project_tagline }}</p>
+    <div class="center">
+      <span class="credits">Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a> at <a href='https://github.com/domness/Bless-Skill-Tree'>GitHub</a></span>
+    </div>
+  </div>
+
+  {{ content }}
+
+</section>
+
+{% include footer.html %}

@@ -1,0 +1,10 @@
+- name: Paladin
+  page: paladin
+- name: Guardian
+  page: guardian
+- name: Mage
+  page: mage
+- name: Berserker
+  page: berserker
+- name: Ranger
+  page: ranger

@@ -1,0 +1,22 @@
+---
+layout: null
+---
+{
+  {% for class in site.data.classes %}"{{ class.page }}": {
+    "skills": [{% for skill in site.data[class.page].skills %}{% assign skill_data = site.data[class.page].skills | where: "slug", skill.slug | first %}
+      {
+        "slug": {{ skill_data.slug | jsonify }},
+        "name": {{ skill_data.name | jsonify }},
+        "image": "{{ site.url }}/{{ site.root }}/images/{{ skill_data.image }}",
+        "cooldown": {{ skill_data.cooldown | jsonify }},
+        "crowd-control": {{ skill_data.crowd-control | jsonify }},
+        "skill-details": {{ skill_data.skill-details | jsonify }},
+        "skill-descriptions": {{ skill_data.skill-descriptions | jsonify }}
+      }{% if forloop.last == false %},{% endif %}{% endfor %}
+    ],
+    "non_stance_skills": [{% for skill in site.data[class.page].non_stance_skills %}
+      "{{ skill.slug }}"{% if forloop.last == false %},{% endif %}{% endfor %}
+    ]
+  }{% if forloop.last == false %},{% endif %}
+  {% endfor %}
+}
