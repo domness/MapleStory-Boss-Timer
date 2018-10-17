@@ -8,12 +8,10 @@ function getTime() {
 function sortByTime(a, b) {
   var now = new Date();
   var nowOffset = now.getMinutes();
-  // console.log(nowOffset);
 
   var x = a.minutes - nowOffset;
-  // console.log(x);
   var y = b.minutes - nowOffset;
-  // console.log(y);
+
   if (x < 0) x += 86400;
   if (y < 0) y += 86400;
   if (isCurrent(b)) {
@@ -41,8 +39,6 @@ function isCurrent(a) {
 }
 
 function refreshAll() {
-  console.log('test');
-
   $('.table-content').remove();
 
   var self = this;
