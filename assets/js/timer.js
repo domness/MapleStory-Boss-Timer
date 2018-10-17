@@ -17,14 +17,6 @@ function sortByTime(a, b) {
   return ((x < y) ? -1 : ((x > y) ? 1 : 0));
 }
 
-// function sortByActive(a, b) {
-//   if (isCurrent(a)) {
-//     return 1;
-//   } else {
-//     return 0;
-//   }
-// }
-
 function isCurrent(a) {
   var now = new Date();
   var nowMinutes = now.getMinutes();
@@ -32,7 +24,7 @@ function isCurrent(a) {
   var end = a.minutes + a.open;
 
   if (end > 60) {
-    end = (end - 60) + 60;
+    end = (end * 10) + 60;
     nowMinutes = nowMinutes + 60;
   }
 
