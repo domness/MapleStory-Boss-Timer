@@ -2,6 +2,8 @@
 
 World Boss timer for MapleStory 2 (NA/EU).
 
+The site can be accessed at [MapleStory-Boss-Timer](https://domness.github.io/MapleStory-Boss-Timer/).
+
 ## GitHub Pages & Jekyll
 
 The GitHub pages are updated automatically when deploying to `master`. This uses Jekyll to build the site after any changes.
