@@ -35,52 +35,31 @@ function isCurrent(a) {
   }
 }
 
-function refreshAll() {
-  $('.table-content').remove();
-  $('.active-content').remove();
+function isCloseToEnd(a) {
+  var now = new Date();
+  var nowMinutes = now.getMinutes();
+  var start = a.minutes;
+  var end = a.minutes + a.open - 5;
 
-  var self = this;
+  if (end > 60) {
+    end = (end * 10) + 60;
+    nowMinutes = nowMinutes + 60;
+  }
 
-  var bosses = [
-    { name: 'Acreon', minutes: 5, map: 'Lavendar Island', open: 15 },
-    { name: 'Alpha Turtle', minutes: 40, map: 'Ellua Riverside', open: 15 },
-    { name: 'Amadon', minutes: 55, map: 'Ludari Arena', open: 15 },
-    // "Bajar": { minutes: 0, map: "", open: 15 },
-    // "Cold-Blooded Baphomet": { minutes: 0, map: "", open: 15 },
-    { name: 'Devilin Warrior', minutes: 55, map: 'South Royal Road', open: 15 },
-    // "Dun Dun": { minutes: 0, map: "", open: 15 },
-    { name: 'Furious Baphomet', minutes: 5, map: 'Mirror Castle', open: 15 },
-    { name: 'Giant Turtle', minutes: 35, map: 'Beachway 111', open: 15 },
-    { name: 'Griffin', minutes: 15, map: 'Frostheart', open: 15 },
-    { name: 'Griffina', minutes: 25, map: 'Trinian Crossing', open: 15 },
-    { name: 'Heartless Baphomet', minutes: 15, map: 'Frostpeak Mountain', open: 15 },
-    // "Ica Le Madrid": { minutes: 0, map: "", open: 15 },
-    // "Ikar Morde": { minutes: 0, map: "", open: 15 },
-    { name: 'Lernos', minutes: 45, map: 'Twilight Moon Castle', open: 15 },
-    // "Lulu and Momos": { minutes: 0, map: "", open: 15 },
-    { name: 'MK 52 Alpha Bot', minutes: 45, map: 'Neuron DNA Research Center', open: 15 },
-    { name: 'Pekanos', minutes: 55, map: 'Fractured Canyon', open: 15 },
-    { name: 'Toh and Googoo', minutes: 25, map: 'Whistler Cliffs', open: 15 },
-    // "Toto and Waggus": { minutes: 0, map: "", open: 15 },
-    { name: 'Ureus', minutes: 15, map: 'Nazkar Pyramid', open: 15 },
-    { name: 'Vayar Gatekeeper', minutes: 35, map: 'Precipice Fortress', open: 15 },
-  ];
-
-  bosses.sort(sortByTime);
-
-  var active = bosses.filter(x => isCurrent(x));
-  var inactive = bosses.filter(x => !isCurrent(x));
-
-  addDetailedBosses(active);
-  addBosses(active);
-  addBosses(inactive);
+  if (nowMinutes >= start && nowMinutes <= end) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function addBosses(bosses) {
   var k = bosses.length;
   for (i = 0; i<k; i++) {
     var boss = bosses[i];
-    var tmp = '<div class="row table-content ' + (isCurrent(boss) ? 'active' : 'inactive') + '">'
+    var tmp = '<div class="row table-content '
+            + (isCurrent(boss) ? 'active' : 'inactive')
+            + (isCloseToEnd(boss) ? ' alerted' : '') + '">'
             + '<div class="col-sm-1"><img class="boss-icon" src="images/boss-icon.png"/></div>'
             + '<div class="col-sm-4">' + boss.name + '</div>'
             + '<div class="col-sm-4">' + boss.map + '</div>'
@@ -95,7 +74,10 @@ function addDetailedBosses(bosses) {
   var count = bosses.length;
   for (i = 0; i<count; i++) {
     var boss = bosses[i];
-    var tmp = '<div class="row active-content">'
+    var tmp = '<div class="row active-content '
+            + (isCurrent(boss) ? 'active' : 'inactive')
+            + (isCloseToEnd(boss) ? ' alerted' : '')
+            + '">'
             + '<div class="col-sm-12 center"><img class="boss-icon" src="images/boss-icon.png"/></div>'
             + '<div class="col-sm-12 center"><h2>' + boss.name + '</h2></div>'
             + '<div class="col-sm-12 center">' + boss.map + '</div>'
@@ -116,6 +98,42 @@ function formattedMinutes(a) {
   } else {
     return a;
   }
+}
+
+function refreshAll() {
+  $('.table-content').remove();
+  $('.active-content').remove();
+
+  var self = this;
+
+  var bosses = [
+    { name: 'Acreon', minutes: 5, map: 'Lavendar Island', open: 10 },
+    { name: 'Alpha Turtle', minutes: 40, map: 'Ellua Riverside', open: 10 },
+    { name: 'Amadon', minutes: 55, map: 'Ludari Arena', open: 10 },
+    { name: 'Devilin Warrior', minutes: 55, map: 'South Royal Road', open: 10 },
+    { name: 'Doondun', minutes: 55, map: 'Kerning Junkyard', open: 10 },
+    { name: 'Furious Baphomet', minutes: 5, map: 'Mirror Castle', open: 10 },
+    { name: 'Giant Turtle', minutes: 35, map: 'Beachway 111', open: 10 },
+    { name: 'Griffin', minutes: 15, map: 'Frostheart', open: 10 },
+    { name: 'Griffina', minutes: 25, map: 'Trinian Crossing', open: 10 },
+    { name: 'Heartless Baphomet', minutes: 15, map: 'Frostpeak Mountain', open: 10 },
+    { name: 'Ikar Morde', minutes: 5, map: 'Frozencrest', open: 10 },
+    { name: 'Lernos', minutes: 45, map: 'Twilight Moon Castle', open: 10 },
+    { name: 'MK 52 Alpha Bot', minutes: 45, map: 'Neuron DNA Research Center', open: 10 },
+    { name: 'Pekanos', minutes: 55, map: 'Fractured Canyon', open: 10 },
+    { name: 'Toh and Googoo', minutes: 25, map: 'Whistler Cliffs', open: 10 },
+    { name: 'Ureus', minutes: 15, map: 'Nazkar Pyramid', open: 10 },
+    { name: 'Vayar Gatekeeper', minutes: 35, map: 'Precipice Fortress', open: 10 },
+  ];
+
+  bosses.sort(sortByTime);
+
+  var active = bosses.filter(x => isCurrent(x));
+  var inactive = bosses.filter(x => !isCurrent(x));
+
+  addDetailedBosses(active);
+  addBosses(active);
+  addBosses(inactive);
 }
 
 $(document).ready(function() {

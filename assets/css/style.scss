@@ -9,6 +9,10 @@
   margin-right: auto;
 }
 
+.table-content.active.alerted {
+  background-color: red;
+}
+
 .table-content.active {
   background-color: green;
 }
@@ -26,4 +30,8 @@
   border: 1px solid #666;
   padding: 10px;
   margin-bottom: 5px;
+}
+
+.active-content.alerted {
+  border: 1px solid red;
 }
