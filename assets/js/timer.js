@@ -35,31 +35,12 @@ function isCurrent(a) {
   }
 }
 
-function isCloseToEnd(a) {
-  var now = new Date();
-  var nowMinutes = now.getMinutes();
-  var start = a.minutes;
-  var end = a.minutes + a.open - 5;
-
-  if (end > 60) {
-    end = (end * 10) + 60;
-    nowMinutes = nowMinutes + 60;
-  }
-
-  if (nowMinutes >= start && nowMinutes <= end) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
 function addBosses(bosses) {
   var k = bosses.length;
   for (i = 0; i<k; i++) {
     var boss = bosses[i];
     var tmp = '<div class="row table-content '
-            + (isCurrent(boss) ? 'active' : 'inactive')
-            + (isCloseToEnd(boss) ? ' alerted' : '') + '">'
+            + (isCurrent(boss) ? 'active' : 'inactive') + '">'
             + '<div class="col-sm-1"><img class="boss-icon" src="images/boss-icon.png"/></div>'
             + '<div class="col-sm-4">' + boss.name + '</div>'
             + '<div class="col-sm-4">' + boss.map + '</div>'
@@ -75,9 +56,7 @@ function addDetailedBosses(bosses) {
   for (i = 0; i<count; i++) {
     var boss = bosses[i];
     var tmp = '<div class="row active-content '
-            + (isCurrent(boss) ? 'active' : 'inactive')
-            + (isCloseToEnd(boss) ? ' alerted' : '')
-            + '">'
+            + (isCurrent(boss) ? 'active' : 'inactive') + '">'
             + '<div class="col-sm-12 center"><img class="boss-icon" src="images/boss-icon.png"/></div>'
             + '<div class="col-sm-12 center"><h2>' + boss.name + '</h2></div>'
             + '<div class="col-sm-12 center">' + boss.map + '</div>'
