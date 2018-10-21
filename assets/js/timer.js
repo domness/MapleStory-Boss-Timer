@@ -101,6 +101,8 @@ function formattedMinutes(a) {
 }
 
 function refreshAll() {
+  $('.current-time').remove();
+  $("#now-timezone").append("<span class='current-time'>Current Time: " + getTime() + "</div>");
   $('.table-content').remove();
   $('.active-content').remove();
 
@@ -138,8 +140,6 @@ function refreshAll() {
 
 $(document).ready(function() {
   console.log('MapleStory 2 World Boss Timer: Started');
-
-  $("#now-timezone").append("Current Time: " + getTime());
 
   refreshAll();
 
