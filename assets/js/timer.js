@@ -92,7 +92,7 @@ function refreshAll() {
     { name: 'Alpha Turtle', minutes: 40, map: 'Ellua Riverside', open: 10 },
     { name: 'Amadon', minutes: 55, map: 'Ludari Arena', open: 10 },
     { name: 'Devilin Warrior', minutes: 55, map: 'South Royal Road', open: 10 },
-    { name: 'Doondun', minutes: 55, map: 'Kerning Junkyard', open: 10 },
+    { name: 'Doondun', minutes: 5, map: 'Kerning Junkyard', open: 10 },
     { name: 'Furious Baphomet', minutes: 5, map: 'Mirror Castle', open: 10 },
     { name: 'Giant Turtle', minutes: 35, map: 'Beachway 111', open: 10 },
     { name: 'Griffin', minutes: 15, map: 'Frostheart', open: 10 },
