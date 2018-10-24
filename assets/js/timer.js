@@ -24,8 +24,15 @@ function isCurrent(a) {
   var end = a.minutes + a.open;
 
   if (end > 60) {
-    end = (end * 10) + 60;
-    nowMinutes = nowMinutes + 60;
+    // end = (end * 10) + 60;
+    if (nowMinutes <= 15) {
+      end = end - 60
+      console.log(a);
+      if (nowMinutes <= end) {
+        return true;
+      }
+    }
+    // nowMinutes = nowMinutes + 60;
   }
 
   if (nowMinutes >= start && nowMinutes <= end) {
@@ -94,7 +101,7 @@ function refreshAll() {
     { name: 'Devilin Warrior', minutes: 55, map: 'South Royal Road', open: 10 },
     { name: 'Doondun', minutes: 5, map: 'Kerning Junkyard', open: 10 },
     { name: 'Furious Baphomet', minutes: 5, map: 'Mirror Castle', open: 10 },
-    { name: 'Giant Turtle', minutes: 35, map: 'Beachway 111', open: 10 },
+    { name: 'Giant Turtle', minutes: 35, map: 'Beachway 111', open: 15 },
     { name: 'Griffin', minutes: 15, map: 'Frostheart', open: 10 },
     { name: 'Griffina', minutes: 25, map: 'Trinian Crossing', open: 10 },
     { name: 'Heartless Baphomet', minutes: 15, map: 'Frostpeak Mountain', open: 10 },
