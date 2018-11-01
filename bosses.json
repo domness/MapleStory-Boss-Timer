@@ -1,0 +1,106 @@
+{
+  "bosses": [
+    {
+      "name": "Acreon",
+      "minutes": 5,
+      "map": "Lavendar Island",
+      "open": 10
+    },
+    {
+      "name": "Alpha Turtle",
+      "minutes": 40,
+      "map": "Ellua Riverside",
+      "open": 10
+    },
+    {
+      "name": "Amadon",
+      "minutes": 55,
+      "map": "Ludari Arena",
+      "open": 10
+    },
+    {
+      "name": "Devilin Warrior",
+      "minutes": 55,
+      "map": "South Royal Road",
+      "open": 10
+    },
+    {
+      "name": "Doondun",
+      "minutes": 5,
+      "map": "Kerning Junkyard",
+      "open": 10
+    },
+    {
+      "name": "Furious Baphomet",
+      "minutes": 5,
+      "map": "Mirror Castle",
+      "open": 10
+    },
+    {
+      "name": "Giant Turtle",
+      "minutes": 35,
+      "map": "Beachway 111",
+      "open": 15
+    },
+    {
+      "name": "Griffin",
+      "minutes": 15,
+      "map": "Frostheart",
+      "open": 10
+    },
+    {
+      "name": "Griffina",
+      "minutes": 25,
+      "map": "Trinian Crossing",
+      "open": 10
+    },
+    {
+      "name": "Heartless Baphomet",
+      "minutes": 15,
+      "map": "Frostpeak Mountain",
+      "open": 10
+    },
+    {
+      "name": "Ikar Morde",
+      "minutes": 5,
+      "map": "Frozencrest",
+      "open": 10
+    },
+    {
+      "name": "Lernos",
+      "minutes": 45,
+      "map": "Twilight Moon Castle",
+      "open": 10
+    },
+    {
+      "name": "MK 52 Alpha Bot",
+      "minutes": 45,
+      "map": "Neuron DNA Research Center",
+      "open": 10
+    },
+    {
+      "name": "Pekanos",
+      "minutes": 55,
+      "map": "Fractured Canyon",
+      "open": 10
+    },
+    {
+      "name": "Toh and Googoo",
+      "minutes": 25,
+      "map": "Whistler Cliffs",
+      "open": 10
+    },
+    {
+      "name": "Ureus",
+      "minutes": 15,
+      "map": "Nazkar Pyramid",
+      "open": 10
+    },
+    {
+      "name": "Vayar Gatekeeper",
+      "minutes": 35,
+      "map": "Precipice Fortress",
+      "open": 10
+    }
+  ]
+}

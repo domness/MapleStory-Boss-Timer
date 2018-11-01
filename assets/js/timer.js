@@ -64,11 +64,10 @@ function addDetailedBosses(bosses) {
     var boss = bosses[i];
     var tmp = '<div class="row active-content '
             + (isCurrent(boss) ? 'active' : 'inactive') + '">'
-            + '<div class="col-sm-12 center"><img class="boss-icon" src="images/boss-icon.png"/></div>'
             + '<div class="col-sm-12 center"><h2>' + boss.name + '</h2></div>'
+            + '<div class="col-sm-12 center"><img class="boss-icon-large" src="images/' + boss.image + '"/></div>'
             + '<div class="col-sm-12 center">' + boss.map + '</div>'
             + '<div class="col-sm-12 center"><sub>Started at XX:' + formattedMinutes(boss.minutes) + '</sub></div>'
-            + '<div class="col-sm-12 center"><sub>Will leave the map within ' + formattedMinutes(boss.open) + ' minutes</sub></div>'
             + '</div>';
     $('#on-now').append(tmp);
   }
@@ -95,23 +94,23 @@ function refreshAll() {
   var self = this;
 
   var bosses = [
-    { name: 'Acreon', minutes: 5, map: 'Lavendar Island', open: 10 },
-    { name: 'Alpha Turtle', minutes: 40, map: 'Ellua Riverside', open: 10 },
-    { name: 'Amadon', minutes: 55, map: 'Ludari Arena', open: 10 },
-    { name: 'Devilin Warrior', minutes: 55, map: 'South Royal Road', open: 10 },
-    { name: 'Doondun', minutes: 5, map: 'Kerning Junkyard', open: 10 },
-    { name: 'Furious Baphomet', minutes: 5, map: 'Mirror Castle', open: 10 },
-    { name: 'Giant Turtle', minutes: 35, map: 'Beachway 111', open: 15 },
-    { name: 'Griffin', minutes: 15, map: 'Frostheart', open: 10 },
-    { name: 'Griffina', minutes: 25, map: 'Trinian Crossing', open: 10 },
-    { name: 'Heartless Baphomet', minutes: 15, map: 'Frostpeak Mountain', open: 10 },
-    { name: 'Ikar Morde', minutes: 5, map: 'Frozencrest', open: 10 },
-    { name: 'Lernos', minutes: 45, map: 'Twilight Moon Castle', open: 10 },
-    { name: 'MK 52 Alpha Bot', minutes: 45, map: 'Neuron DNA Research Center', open: 10 },
-    { name: 'Pekanos', minutes: 55, map: 'Fractured Canyon', open: 10 },
-    { name: 'Toh and Googoo', minutes: 25, map: 'Whistler Cliffs', open: 10 },
-    { name: 'Ureus', minutes: 15, map: 'Nazkar Pyramid', open: 10 },
-    { name: 'Vayar Gatekeeper', minutes: 35, map: 'Precipice Fortress', open: 10 },
+    { name: 'Acreon', minutes: 5, map: 'Lavendar Island', open: 10, level: 50, image: 'acreon.png' },
+    { name: 'Alpha Turtle', minutes: 40, map: 'Ellua Riverside', open: 10, level: 37, image: 'alpha-turtle.png' },
+    { name: 'Amadon', minutes: 55, map: 'Ludari Arena', open: 10, level: 50, image: 'amadon.png' },
+    { name: 'Devilin Warrior', minutes: 55, map: 'South Royal Road', open: 10, level: 21, image: 'devilin-warrior.png' },
+    { name: 'Doondun', minutes: 5, map: 'Kerning Junkyard', open: 10, level: 15, image: 'doondun.png' },
+    { name: 'Furious Baphomet', minutes: 5, map: 'Mirror Castle', open: 10, level: 40, image: 'furious-baphomet.png' },
+    { name: 'Giant Turtle', minutes: 35, map: 'Beachway 111', open: 15, level: 18, image: 'giant-turtle.png' },
+    { name: 'Griffin', minutes: 15, map: 'Frostheart', open: 10, level: 23, image: 'griffin.png' },
+    { name: 'Griffina', minutes: 25, map: 'Trinian Crossing', open: 10, level: 30, image: 'griffina.png' },
+    { name: 'Heartless Baphomet', minutes: 15, map: 'Frostpeak Mountain', open: 10, level: 50, image: 'heartless-baphomet.png' },
+    { name: 'Ikar Morde', minutes: 5, map: 'Frozencrest', open: 10, level: 50, image: 'ikar-morde.png' },
+    { name: 'Lernos', minutes: 45, map: 'Twilight Moon Castle', open: 10, level: 40, image: 'lernos.png' },
+    { name: 'MK 52 Alpha Bot', minutes: 45, map: 'Neuron DNA Research Center', open: 10, level: 27, image: 'mk52.png' },
+    { name: 'Pekanos', minutes: 55, map: 'Fractured Canyon', open: 10, level: 47, image: 'pekanos.png' },
+    { name: 'Toh and Googoo', minutes: 25, map: 'Whistler Cliffs', open: 10, level: 43, image: 'toh-and-googoo.png' },
+    { name: 'Ureus', minutes: 15, map: 'Nazkar Pyramid', open: 10, level: 50, image: 'ureus.png' },
+    { name: 'Vayar Gatekeeper', minutes: 35, map: 'Precipice Fortress', open: 10, level: 35, image: 'vayar-gatekeeper.png' },
   ];
 
   bosses.sort(sortByTime);
