@@ -111,6 +111,7 @@ function refreshAll() {
     { name: 'Toh and Googoo', minutes: 25, map: 'Whistler Cliffs', open: 10, level: 43, image: 'toh-and-googoo.png' },
     { name: 'Ureus', minutes: 15, map: 'Nazkar Pyramid', open: 10, level: 50, image: 'ureus.png' },
     { name: 'Vayar Gatekeeper', minutes: 35, map: 'Precipice Fortress', open: 10, level: 35, image: 'vayar-gatekeeper.png' },
+    { name: 'Lo and Moomoo', minutes: 5, map: 'Baum Tree', open: 10, level: 32, image: 'lo-and-moomoo.png' }
   ];
 
   bosses.sort(sortByTime);
